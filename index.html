@@ -70,16 +70,17 @@
     padding:24px 0;
     position:sticky; top:0;
     height:100vh;
-    display:flex; flex-direction:column; align-items:flex-start;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
   }
+  .name{font-size:1.6rem; margin:0 0 14px; line-height:1.15}
   .headshot{
     width:320px; height:auto; object-fit:contain;
     border:1px solid var(--border); margin:0 0 14px;
     max-width:100%;
   }
-  .name{font-size:1.6rem; margin:0 0 8px; line-height:1.15}
   .tagline{margin:2px 0; color:var(--muted); font-size:.95rem}
-  .quicklinks{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:6px}
+  .quicklinks{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; align-items:center; gap:6px}
 
   /* Links */
   a{color:var(--yellow-link); text-decoration:none}
@@ -139,7 +140,7 @@
       position:relative;
       top:auto; height:auto;
       padding:16px 0 0;
-      align-items:flex-start;
+      align-items:center;
     }
     .headshot{
       width:min(65vw, 320px);
@@ -162,8 +163,8 @@
 
   <div class="wrapper">
     <aside class="sidebar">
-      <img src="headshot.jpg" alt="Headshot of Runling Wu" class="headshot" />
       <h1 class="name">Runling Wu</h1>
+      <img src="headshot.jpg" alt="Headshot of Runling Wu" class="headshot" />
       <p class="tagline">PhD Candidate</p>
       <p class="tagline">Department of Economics</p>
       <p class="tagline">Duke University</p>
