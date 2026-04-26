@@ -55,49 +55,31 @@
     .cover{height:22vh}
   }
 
-  /* ——— Single-column page ——— */
-  .page{
-    max-width:680px;
+  /* ——— Two-column layout ——— */
+  .wrapper{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:36px;
+    max-width:1180px;
     margin:0 auto;
-    padding:32px 20px 48px;
+    padding:0 20px;
   }
 
-  /* Header: centered photo, name below, taglines, links */
-  header.profile{
-    text-align:center;
-    margin-bottom:48px;
+  /* Sidebar (desktop) */
+  aside.sidebar{
+    padding:24px 0;
+    position:sticky; top:0;
+    height:100vh;
+    display:flex; flex-direction:column; align-items:flex-start;
   }
   .headshot{
-    width:280px;
-    max-width:80%;
-    height:auto;
-    object-fit:contain;
-    border:1px solid var(--border);
-    display:block;
-    margin:0 auto 18px;
+    width:320px; height:auto; object-fit:contain;
+    border:1px solid var(--border); margin:0 0 14px;
+    max-width:100%;
   }
-  .name{
-    font-size:2rem;
-    font-weight:700;
-    margin:0 0 10px;
-    line-height:1.15;
-  }
-  .tagline{
-    margin:2px 0;
-    color:var(--muted);
-    font-size:1rem;
-  }
-  .quicklinks{
-    list-style:none;
-    padding:0;
-    margin:18px 0 0;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px 18px;
-    font-size:1rem;
-  }
-  .quicklinks li{display:inline-block}
+  .name{font-size:1.6rem; margin:0 0 8px; line-height:1.15}
+  .tagline{margin:2px 0; color:var(--muted); font-size:.95rem}
+  .quicklinks{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:6px}
 
   /* Links */
   a{color:var(--yellow-link); text-decoration:none}
@@ -105,8 +87,10 @@
   .paper-title a{color:var(--blue-link)}
   .paper-title a:hover{color:#005999}
 
-  /* Content sections */
+  /* Content */
+  main.content{padding:28px 0; max-width:620px}
   section{margin:0 0 56px}
+  section.about{margin-top:24px}
   section + section{border-top:1px solid var(--border); padding-top:44px}
   h2{font-size:1.25rem; margin:0 0 16px}
   .papers{list-style:none; padding:0; margin:0}
@@ -141,14 +125,29 @@
     padding-top:16px;
     color:var(--muted);
     font-size:.95rem;
-    text-align:center;
   }
 
   /* Mobile */
-  @media (max-width: 600px){
-    .page{padding:24px 16px 36px}
-    .name{font-size:1.6rem}
-    .headshot{width:220px}
+  @media (max-width: 800px){
+    .wrapper{
+      grid-template-columns:1fr;
+      gap:18px;
+      padding:0 16px;
+      max-width:720px;
+    }
+    aside.sidebar{
+      position:relative;
+      top:auto; height:auto;
+      padding:16px 0 0;
+      align-items:flex-start;
+    }
+    .headshot{
+      width:min(65vw, 320px);
+      margin:4px 0 10px;
+    }
+    .name{font-size:1.35rem; margin:0 0 6px}
+    .tagline{font-size:.92rem; margin:2px 0}
+    main.content{padding:6px 0 20px; max-width:unset}
     section{margin:0 0 40px}
     section + section{padding-top:32px}
     h2{font-size:1.15rem}
@@ -161,84 +160,87 @@
 <body>
   <img src="cover.jpg" alt="Duke University campus with cherry blossoms" class="cover" />
 
-  <div class="page">
-    <header class="profile">
+  <div class="wrapper">
+    <aside class="sidebar">
       <img src="headshot.jpg" alt="Headshot of Runling Wu" class="headshot" />
       <h1 class="name">Runling Wu</h1>
       <p class="tagline">PhD Candidate</p>
-      <p class="tagline">Department of Economics, Duke University</p>
+      <p class="tagline">Department of Economics</p>
+      <p class="tagline">Duke University</p>
       <ul class="quicklinks">
         <li><a href="mailto:runling.wu@duke.edu">Email</a></li>
         <li><a href="https://x.com/RunlingWu" target="_blank" rel="noopener">Twitter / X</a></li>
         <li><a href="https://bsky.app" target="_blank" rel="noopener">Bluesky</a></li>
       </ul>
-    </header>
+    </aside>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Welcome! I am a PhD candidate in Economics at Duke University.</p>
-      <p>My research interests are <strong>labor</strong>, <strong>macro</strong>, and <strong>spatial</strong> economics. I am interested in studying how labor market prospects and lifetime location choices shape inequality.</p>
-      <p>My CV is available <a href="Runling_CV.pdf" target="_blank" rel="noopener">here</a>. You can contact me at <a href="mailto:runling.wu@duke.edu">runling.wu@duke.edu</a>.</p>
-    </section>
+    <main class="content">
+      <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>Welcome! I am a PhD candidate in Economics at Duke University.</p>
+        <p>My research interests are <strong>labor</strong>, <strong>macro</strong>, and <strong>spatial</strong> economics. I am interested in studying how labor market prospects and lifetime location choices shape inequality.</p>
+        <p>My CV is available <a href="Runling_CV.pdf" target="_blank" rel="noopener">here</a>. You can contact me at <a href="mailto:runling.wu@duke.edu">runling.wu@duke.edu</a>.</p>
+      </section>
 
-    <section id="research">
-      <h2>Working Papers</h2>
-      <ul class="papers">
-        <li class="paper">
-          <span class="paper-title">
-            <a href="https://dx.doi.org/10.2139/ssrn.5982736" target="_blank" rel="noopener">Intergenerational Mobility in Welfare: Wages and Amenities</a>
-          </span>
-          <span class="paper-meta">(with <a href="https://sites.google.com/view/natalia-khorunzhina" target="_blank" rel="noopener">Natalia Khorunzhina</a> and <a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a>)</span>
-          <div class="paper-links">
-            <a href="https://dx.doi.org/10.2139/ssrn.5982736" target="_blank" rel="noopener">[SSRN Draft, 2025]</a>
-            <a href="https://research-api.cbs.dk/ws/portalfiles/portal/121368045/ECON_WP_1.pdf" target="_blank" rel="noopener">[CBS WP 1-2026]</a>
-            <a href="https://ifs.org.uk/publications/intergenerational-mobility-welfare-wages-and-amenities" target="_blank" rel="noopener">[IFS WP 26/09]</a>
-          </div>
-          <details>
-            <summary>Abstract (click to expand)</summary>
-            <div class="abs">
-              <p><em>Abstract coming soon.</em></p>
+      <section id="research">
+        <h2>Working Papers</h2>
+        <ul class="papers">
+          <li class="paper">
+            <span class="paper-title">
+              <a href="https://dx.doi.org/10.2139/ssrn.5982736" target="_blank" rel="noopener">Intergenerational Mobility in Welfare: Wages and Amenities</a>
+            </span>
+            <span class="paper-meta">(with <a href="https://sites.google.com/view/natalia-khorunzhina" target="_blank" rel="noopener">Natalia Khorunzhina</a> and <a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a>)</span>
+            <div class="paper-links">
+              <a href="https://dx.doi.org/10.2139/ssrn.5982736" target="_blank" rel="noopener">[SSRN Draft, 2025]</a>
+              <a href="https://research-api.cbs.dk/ws/portalfiles/portal/121368045/ECON_WP_1.pdf" target="_blank" rel="noopener">[CBS WP 1-2026]</a>
+              <a href="https://ifs.org.uk/publications/intergenerational-mobility-welfare-wages-and-amenities" target="_blank" rel="noopener">[IFS WP 26/09]</a>
             </div>
-          </details>
-        </li>
+            <details>
+              <summary>Abstract (click to expand)</summary>
+              <div class="abs">
+                <p><em>Abstract coming soon.</em></p>
+              </div>
+            </details>
+          </li>
 
-        <li class="paper">
-          <span class="paper-title">The Worker and Firm Origins of Life-Cycle Wage Inequality <span class="status">(coming soon)</span></span>
-          <span class="paper-meta">(with <a href="https://www.xinchengqiu.com/" target="_blank" rel="noopener">Xincheng Qiu</a> and <a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a>)</span>
-          <details>
-            <summary>Abstract (click to expand)</summary>
-            <div class="abs">
-              <p><em>Abstract coming soon.</em></p>
-            </div>
-          </details>
-        </li>
-      </ul>
-    </section>
+          <li class="paper">
+            <span class="paper-title">The Worker and Firm Origins of Life-Cycle Wage Inequality <span class="status">(coming soon)</span></span>
+            <span class="paper-meta">(with <a href="https://www.xinchengqiu.com/" target="_blank" rel="noopener">Xincheng Qiu</a> and <a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a>)</span>
+            <details>
+              <summary>Abstract (click to expand)</summary>
+              <div class="abs">
+                <p><em>Abstract coming soon.</em></p>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
 
-    <section id="reading-group">
-      <h2>“The Micro and Macro Perspective of the Labor Market” Reading Group</h2>
-      <p><a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a> and I co-organize the “Micro and Macro Perspective of the Labor Market” Virtual Reading Group at Duke. An archive can be found <a href="https://docs.google.com/spreadsheets/d/1wGIQPnqIEQkiupWEc0t0tkkEyHI8ndEdkuNp-LQFFL8/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
-      <p>Please contact <a href="mailto:labor.public@gmail.com">labor.public@gmail.com</a> if you are interested in participating. Meetings are on Saturdays at 11&nbsp;AM (ET) via Zoom.</p>
-    </section>
+      <section id="reading-group">
+        <h2>“The Micro and Macro Perspective of the Labor Market” Reading Group</h2>
+        <p><a href="https://scholars.duke.edu/person/jesse.wedewer" target="_blank" rel="noopener">Jesse Wedewer</a> and I co-organize the “Micro and Macro Perspective of the Labor Market” Virtual Reading Group at Duke. An archive can be found <a href="https://docs.google.com/spreadsheets/d/1wGIQPnqIEQkiupWEc0t0tkkEyHI8ndEdkuNp-LQFFL8/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
+        <p>Please contact <a href="mailto:labor.public@gmail.com">labor.public@gmail.com</a> if you are interested in participating. Meetings are on Saturdays at 11&nbsp;AM (ET) via Zoom.</p>
+      </section>
 
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <p>Teaching Assistant, Department of Economics, Duke University:</p>
-      <ul>
-        <li>Econ 702 — Macroeconomics I (PhD), Fall 2024</li>
-        <li>Econ 706 — Macroeconomics II (PhD), Spring 2025</li>
-      </ul>
-    </section>
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <p>Teaching Assistant, Department of Economics, Duke University:</p>
+        <ul>
+          <li>Econ 702 — Macroeconomics I (PhD), Fall 2024</li>
+          <li>Econ 706 — Macroeconomics II (PhD), Spring 2025</li>
+        </ul>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:runling.wu@duke.edu">runling.wu@duke.edu</a><br />
-      Department of Economics, Duke University • Durham, NC</p>
-    </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:runling.wu@duke.edu">runling.wu@duke.edu</a><br />
+        Department of Economics, Duke University • Durham, NC</p>
+      </section>
 
-    <footer class="site">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> Runling Wu.</p>
-    </footer>
+      <footer class="site">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Runling Wu.</p>
+      </footer>
+    </main>
   </div>
 </body>
 </html>
