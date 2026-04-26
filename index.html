@@ -89,13 +89,14 @@
 
   /* Content */
   main.content{padding:28px 0; max-width:620px}
-  section{margin:0 0 40px}
+  section{margin:0 0 56px}
   section.bio{margin-top:24px}
-  section + section{border-top:1px solid var(--border); padding-top:32px}
-  h2{font-size:1.25rem; margin:0 0 12px}
+  section + section{border-top:1px solid var(--border); padding-top:44px}
+  h2{font-size:1.25rem; margin:0 0 16px}
   .bio{margin:0 0 12px}
   .papers{list-style:none; padding:0; margin:0}
-  .paper{margin:14px 0 18px}
+  .paper{margin:0 0 28px}
+  .paper:last-child{margin-bottom:0}
   .paper-title{font-weight:600}
   .paper-meta{color:var(--muted); margin-left:6px}
   .paper-links{margin-top:4px; font-size:.95rem}
@@ -128,9 +129,10 @@
     }
     .tagline{font-size:.92rem; margin:2px 0}
     main.content{padding:6px 0 20px; max-width:unset}
-    section{margin:18px 0}
+    section{margin:0 0 40px}
+    section + section{padding-top:32px}
     h2{font-size:1.15rem}
-    .paper{margin:12px 0 14px}
+    .paper{margin:0 0 22px}
   }
 
   .paper-title a, .paper-meta, .bio, #contact p { word-wrap:break-word; overflow-wrap:anywhere; }
