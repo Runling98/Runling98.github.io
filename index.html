@@ -80,8 +80,20 @@
     max-width:100%;
   }
   .tagline{margin:2px 0; color:var(--muted); font-size:.95rem}
-  .pronunciation{margin:0 0 10px; color:var(--muted); font-size:.9rem}
-  .quicklinks{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; align-items:center; gap:6px}
+  .pronunciation{margin:8px 0 0; color:var(--muted); font-size:.9rem}
+  .social-icons{
+    list-style:none; padding:0; margin:14px 0 6px;
+    display:flex; flex-direction:row; align-items:center; justify-content:center; gap:16px;
+  }
+  .social-icons li{ margin:0 }
+  .social-icons a{
+    color:#444;
+    display:inline-flex; align-items:center; justify-content:center;
+    transition:color .2s ease;
+  }
+  .social-icons a:hover{ color:var(--blue-link) }
+  .social-icons svg{ display:block; width:22px; height:22px }
+  .cv-link{ margin:6px 0 0; font-size:.95rem }
 
   /* Links */
   a{color:var(--yellow-link); text-decoration:none}
@@ -205,15 +217,28 @@
     <aside class="sidebar">
       <h1 class="name">Runling Wu</h1>
       <img src="headshot.jpg" alt="Headshot of Runling Wu" class="headshot" />
-      <p class="pronunciation">Pronunciation: <a href="https://translate.google.com/?sl=zh-CN&tl=en&text=%E6%B6%A6%E9%93%83&op=translate" target="_blank" rel="noopener">Runling</a> <a href="https://translate.google.com/?sl=zh-CN&tl=en&text=%E5%90%B4%E6%B6%A6%E9%93%83&op=translate" target="_blank" rel="noopener">Wu</a></p>
       <p class="tagline">PhD Candidate</p>
       <p class="tagline">Department of Economics</p>
       <p class="tagline">Duke University</p>
-      <ul class="quicklinks">
-        <li><a href="mailto:runling.wu@duke.edu">Email</a></li>
-        <li><a href="https://x.com/RunlingWu" target="_blank" rel="noopener">Twitter / X</a></li>
-        <li><a href="https://bsky.app" target="_blank" rel="noopener">Bluesky</a></li>
+      <ul class="social-icons" aria-label="Contact and social links">
+        <li>
+          <a href="mailto:runling.wu@duke.edu" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/RunlingWu" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://bsky.app" target="_blank" rel="noopener" aria-label="Bluesky">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" fill="currentColor"><path d="M135.72 44.03C202.216 93.951 273.74 195.17 300 249.49c26.262-54.316 97.782-155.54 164.28-205.46C512.26 8.013 590-19.504 590 69.21c0 17.726-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.38-3.69-10.832-3.708-7.896-.017-2.936-1.193.516-3.707 7.896-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.45-163.25-81.433C20.155 218.001 10 86.936 10 69.211 10-19.504 87.74 8.013 135.72 44.03Z"/></svg>
+          </a>
+        </li>
       </ul>
+      <p class="cv-link"><a href="Runling_CV.pdf" target="_blank" rel="noopener">[Curriculum Vitae]</a></p>
+      <p class="pronunciation">Pronunciation — <a href="https://translate.google.com/?sl=zh-CN&tl=en&text=%E6%B6%A6%E9%93%83&op=translate" target="_blank" rel="noopener">Runling</a> <a href="https://translate.google.com/?sl=zh-CN&tl=en&text=%E5%90%B4%E6%B6%A6%E9%93%83&op=translate" target="_blank" rel="noopener">Wu</a></p>
     </aside>
 
     <main class="content">
