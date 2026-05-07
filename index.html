@@ -37,7 +37,6 @@
     --border:#eaeaea;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
   html,body{margin:0}
   body{
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
@@ -45,42 +44,15 @@
   }
 
   /* ——— Cover banner (full-bleed) ——— */
-  .cover-wrap{position:relative}
   .cover{
     display:block;
     width:100%;
-    height:20vh;
+    height:30vh;
     object-fit:cover;
     object-position:center 0%;
   }
   @media (max-width: 800px){
-    .cover{height:14vh}
-  }
-
-  /* ——— Top navigation ——— */
-  .topnav{
-    position:absolute;
-    top:14px; right:24px;
-    display:flex; gap:6px;
-    z-index:10;
-  }
-  .topnav a{
-    color:#fff;
-    background:rgba(0,0,0,.35);
-    padding:6px 14px;
-    border-radius:6px;
-    font-size:.92rem;
-    text-decoration:none;
-    backdrop-filter:blur(4px);
-    -webkit-backdrop-filter:blur(4px);
-  }
-  .topnav a:hover{
-    background:rgba(0,0,0,.6);
-    color:#fff;
-  }
-  @media (max-width: 800px){
-    .topnav{top:8px; right:12px; gap:4px}
-    .topnav a{padding:5px 10px; font-size:.85rem}
+    .cover{height:22vh}
   }
 
   /* ——— Two-column layout ——— */
@@ -235,14 +207,7 @@
   </style>
 </head>
 <body>
-  <div class="cover-wrap">
-    <img src="cover.jpg" alt="Duke University campus with cherry blossoms" class="cover" />
-    <nav class="topnav" aria-label="Section navigation">
-      <a href="#research">Research</a>
-      <a href="#reading-group">Reading Group</a>
-      <a href="#teaching">Teaching</a>
-    </nav>
-  </div>
+  <img src="cover.jpg" alt="Duke University campus with cherry blossoms" class="cover" />
 
   <div class="wrapper">
     <aside class="sidebar">
